@@ -12,7 +12,7 @@ samples, `T` is the dimension of your lines.
 pip install shadyquant
 ```
 
-## Example
+## Usage
 
 Consider you have 100 lines that you want to compute confidence intervals (quantiles) on:
 
@@ -26,6 +26,7 @@ plt.plot(x,y)
 ```
 ![image](https://user-images.githubusercontent.com/908389/163302232-2b719ee6-aeb3-4c37-a68c-15c69d4e57c9.png)
 
+I'll make 100 examples of this plot, each scaled by a random number.
 
 ```py
 w = np.random.normal(size=100)**2
@@ -36,7 +37,7 @@ plt.show()
 ![image](https://user-images.githubusercontent.com/908389/163302143-42fdebee-afc8-4ec6-b550-f5208be32e99.png)
 
 
-You can use shadyquant to plot a 95% confidence interval:
+You can use shadyquant to plot a 95% confidence interval (default):
 
 ```py
 import sq
@@ -45,7 +46,7 @@ sq.traj_quantile(traj)
 ![image](https://user-images.githubusercontent.com/908389/163302155-c78fc4c6-caf6-487f-b632-5fda3d9c3fba.png)
 
 
-You can also do weighted quantiling if you have weights attached to each line
+You can also do weighted quantiling, if you have weights attached to each line
 
 ```py
 sq.traj_quantile(traj, weights=w)
@@ -54,8 +55,8 @@ sq.traj_quantile(traj, weights=w)
 ![image](https://user-images.githubusercontent.com/908389/163302172-e3ae6143-aecd-48cb-bb7a-1259e760efeb.png)
 
 
-You may want to do fancy shading, which just plots a series of quantiles as polygons with transparency. The quantils overlap, which gives
-a nice blending. The outer edges of the polygons still correspond to the 95% confidence interval
+You may want to do fancy shading, which just plots a series of quantiles as polygons with transparency. The quantiles overlap, which gives
+a nice blending. The outer edges of the polygons still correspond to the 95% confidence interval.
 
 ```py
 sq.traj_quantile(traj, fancy_shading=True)
